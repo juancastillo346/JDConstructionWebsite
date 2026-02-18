@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/* using system fonts instead of bundled /media fonts */
+
+:root {
+  --background: #F7EFE0;
+  --foreground: #000000;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--foreground);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.article-content a {
+  text-decoration: underline;
+  color: inherit;
+  transition: opacity 0.2s;
+}
+
+.article-content a:hover {
+  opacity: 0.8;
+}
