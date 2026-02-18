@@ -115,15 +115,15 @@ export default function HeroMedia({
                   Use a viewport-based top value so it can be placed lower than the middle. */}
               <div
                 className="absolute left-1/2 transform -translate-x-1/2"
-                style={{ top: "24vh" }}
+                style={{ top: "20vh" }}
               >
                 <a
                   href="#portfolio"
-                  aria-label="See Recent Work"
+                  aria-label="Click or scroll down for recent work"
                   className="inline-flex items-center justify-center px-10 py-4 md:px-14 md:py-6 rounded-full border-2 border-white bg-white text-black text-lg md:text-xl font-bold uppercase tracking-wider shadow-lg hover:opacity-95 transition"
                   style={{ minWidth: 220 }}
                 >
-                  See Recent Work!
+                  Click or scroll down for recent work
                 </a>
               </div>
             </div>
