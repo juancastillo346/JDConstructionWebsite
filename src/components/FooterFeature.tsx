@@ -46,7 +46,7 @@ export default function FooterFeature({ tiles }: FooterFeatureProps) {
     <section
       id="contact"
       ref={sectionRef}
-      className={`w-full bg-[var(--background)] py-16 transition-all duration-1000 md:py-24 ${
+      className={`w-full bg-blue-50 py-16 transition-all duration-1000 md:py-24 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
     >

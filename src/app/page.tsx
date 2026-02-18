@@ -1,6 +1,7 @@
 import FooterFeature from "@/components/FooterFeature";
 import HeroMedia from "@/components/HeroMedia";
 import IssueSpotlight from "@/components/IssueSpotlight";
+import TestimonialsServer from "@/components/TestimonialsServer";
 import PortfolioServer from "../components/PortfolioServer";
 import { issueSpotlight, tiles } from "@/data/home";
 
@@ -16,9 +17,7 @@ export default function Home() {
         headerPhone={"832-933-1631"}
       />
       <PortfolioServer />
-      <div id="issues">
-        <IssueSpotlight {...issueSpotlight} />
-      </div>
+      <TestimonialsServer />
       <FooterFeature tiles={tiles} />
     </main>
   );
