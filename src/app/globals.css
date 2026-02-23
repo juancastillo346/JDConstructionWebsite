@@ -19,7 +19,9 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  /* Use clip to prevent horizontal scroll without creating a second scrollbar */
+  overflow-x: clip;
+  overflow-y: auto;
 }
 
 /* Disable smooth scroll on mobile - can cause stuck scroll on iOS */
@@ -33,7 +35,8 @@ body {
   background: #ffffff;
   color: var(--foreground);
   font-family: var(--font-circular), var(--font-sans);
-  overflow-x: hidden;
+  /* Only html scrolls - body should not create its own scrollbar */
+  overflow: visible;
 }
 
 /* local font: Circular Std */
