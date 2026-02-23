@@ -38,7 +38,7 @@ export default function HeroMedia({
 
   return (
     <section
-      className="relative min-h-screen w-full md:min-h-screen overflow-hidden"
+      className="relative min-h-screen min-h-[100dvh] w-full overflow-hidden"
       style={{
         backgroundColor: "var(--background)",
         backgroundImage: "url('/media/background.jpeg')",

@@ -20,14 +20,25 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
+/* Disable smooth scroll on mobile - can cause stuck scroll on iOS */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto;
+  }
+}
 
 body {
   background: #ffffff;
   color: var(--foreground);
   font-family: var(--font-circular), var(--font-sans);
   overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  min-height: 100%;
 }
 
 /* local font: Circular Std */

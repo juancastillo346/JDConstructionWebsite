@@ -1,5 +1,5 @@
  "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Lightbox from "./Lightbox";
 import galleryNames from "../data/galleryNames";
 
@@ -21,6 +21,13 @@ export default function PortfolioClient({ galleries }: { galleries: Gallery[] })
     setLightboxImages(null);
     document.body.style.overflow = "";
   }
+
+  // Ensure body scroll is restored when component unmounts (e.g. lightbox was open)
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
 
   // Render one card per folder (mini-gallery). Clicking a card opens that folder's images in the lightbox.
   return (
