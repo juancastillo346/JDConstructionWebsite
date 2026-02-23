@@ -6,6 +6,7 @@ export default function Lightbox({ images, startIndex = 0, onClose }: { images: 
   const [scale, setScale] = useState(1);
   const startTouch = useRef<number | null>(null);
   const startDist = useRef<number | null>(null);
+  const startScale = useRef<number>(1);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -36,6 +37,7 @@ export default function Lightbox({ images, startIndex = 0, onClose }: { images: 
     if (e.touches.length === 1) {
       startTouch.current = e.touches[0].clientX;
     } else if (e.touches.length === 2) {
+      startScale.current = scale;
       const dx = e.touches[0].clientX - e.touches[1].clientX;
       const dy = e.touches[0].clientY - e.touches[1].clientY;
       startDist.current = Math.hypot(dx, dy);
@@ -47,7 +49,7 @@ export default function Lightbox({ images, startIndex = 0, onClose }: { images: 
       const dy = e.touches[0].clientY - e.touches[1].clientY;
       const dist = Math.hypot(dx, dy);
       const ratio = dist / startDist.current;
-      setScale(Math.min(3, Math.max(1, ratio)));
+      setScale(Math.min(3, Math.max(1, startScale.current * ratio)));
     }
   }
   function onTouchEnd(e: React.TouchEvent) {
@@ -67,12 +69,20 @@ export default function Lightbox({ images, startIndex = 0, onClose }: { images: 
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80" onClick={onClose}>
-      <div className="relative max-w-full max-h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      {/* Backdrop: tap/click outside to close */}
+      <div
+        className="absolute inset-0 bg-black/80 cursor-pointer"
+        onClick={onClose}
+        aria-hidden
+      >
+      </div>
+      <div className="relative z-10 max-w-full max-h-full flex items-center justify-center pointer-events-none">
+        <div className="pointer-events-auto flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
         <button
           onClick={prev}
           aria-label="Prev"
-          className="fixed left-6 top-1/2 -translate-y-1/2 text-white text-4xl md:text-5xl p-3 md:p-4 bg-white/10 hover:bg-white/20 rounded-full shadow-lg z-50"
+          className="fixed left-2 sm:left-6 top-1/2 -translate-y-1/2 text-white text-3xl sm:text-4xl md:text-5xl p-2 sm:p-3 md:p-4 bg-white/10 hover:bg-white/20 active:bg-white/30 rounded-full shadow-lg z-50 touch-manipulation"
         >
           ‹
         </button>
@@ -101,17 +111,18 @@ export default function Lightbox({ images, startIndex = 0, onClose }: { images: 
         <button
           onClick={next}
           aria-label="Next"
-          className="fixed right-6 top-1/2 -translate-y-1/2 text-white text-4xl md:text-5xl p-3 md:p-4 bg-white/10 hover:bg-white/20 rounded-full shadow-lg z-50"
+          className="fixed right-2 sm:right-6 top-1/2 -translate-y-1/2 text-white text-3xl sm:text-4xl md:text-5xl p-2 sm:p-3 md:p-4 bg-white/10 hover:bg-white/20 active:bg-white/30 rounded-full shadow-lg z-50 touch-manipulation"
         >
           ›
         </button>
         <button
           onClick={onClose}
           aria-label="Close"
-          className="fixed right-6 top-6 text-white text-2xl md:text-3xl p-2 md:p-3 bg-white/10 hover:bg-white/20 rounded-full shadow-lg z-50"
+          className="fixed right-2 sm:right-6 top-4 sm:top-6 text-white text-xl sm:text-2xl md:text-3xl p-2 md:p-3 bg-white/10 hover:bg-white/20 active:bg-white/30 rounded-full shadow-lg z-50 touch-manipulation"
         >
           ✕
         </button>
+        </div>
       </div>
     </div>
   );

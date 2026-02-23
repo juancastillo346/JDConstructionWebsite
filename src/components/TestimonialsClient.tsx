@@ -22,8 +22,8 @@ export default function TestimonialsClient({ items }: { items: Item[] }) {
   return (
     <div className="relative">
       <div className="mx-auto max-w-3xl">
-        <blockquote className="bg-gray-50 p-8 rounded-lg shadow-sm text-center">
-          <p className="text-lg md:text-xl leading-relaxed text-black/90">&ldquo;{item.quote}&rdquo;</p>
+        <blockquote className="bg-gray-50 p-4 sm:p-6 md:p-8 rounded-lg shadow-sm text-center">
+          <p className="text-base sm:text-lg md:text-xl leading-relaxed text-black/90">&ldquo;{item.quote}&rdquo;</p>
           <footer className="mt-4 text-sm text-black/70">
             {item.author ? <span className="font-semibold">{item.author}</span> : null}
             {item.location ? <span className="ml-2">— {item.location}</span> : null}

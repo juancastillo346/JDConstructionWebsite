@@ -1,9 +1,8 @@
 import FooterFeature from "@/components/FooterFeature";
 import HeroMedia from "@/components/HeroMedia";
-import IssueSpotlight from "@/components/IssueSpotlight";
 import TestimonialsServer from "@/components/TestimonialsServer";
 import PortfolioServer from "../components/PortfolioServer";
-import { issueSpotlight, tiles } from "@/data/home";
+import { tiles } from "@/data/home";
 
 export default function Home() {
   return (

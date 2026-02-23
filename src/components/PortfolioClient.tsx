@@ -25,7 +25,7 @@ export default function PortfolioClient({ galleries }: { galleries: Gallery[] })
   // Render one card per folder (mini-gallery). Clicking a card opens that folder's images in the lightbox.
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
         {galleries.map((g) => {
           const cover = g.images[0];
           const display = galleryNames[g.name] ?? g.name.replace(/[_-]/g, " ");
@@ -42,10 +42,10 @@ export default function PortfolioClient({ galleries }: { galleries: Gallery[] })
                 className="w-full h-56 object-cover transition-transform duration-500 transform group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-black/25 group-hover:bg-black/40 transition-colors duration-300 flex items-end">
-                <div className="p-4 w-full text-white transform transition-transform duration-300 group-hover:-translate-y-1">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold">{display}</h3>
-                    <span className="text-sm opacity-90">{g.images.length} photos</span>
+                <div className="p-3 sm:p-4 w-full text-white transform transition-transform duration-300 group-hover:-translate-y-1">
+                  <div className="flex flex-col gap-1">
+                    <h3 className="text-base sm:text-lg font-semibold line-clamp-3 break-words" title={display}>{display}</h3>
+                    <span className="text-sm opacity-90 shrink-0">{g.images.length} photos</span>
                   </div>
                 </div>
               </div>

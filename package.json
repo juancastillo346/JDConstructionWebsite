@@ -1,9 +1,11 @@
 {
-  "name": "chantel_website",
+  "name": "jd-construction-website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 3001 --webpack",
+    "dev:fresh": "rm -rf .next node_modules/.cache && next dev --port 3001 --webpack",
+    "clean": "rm -rf .next node_modules/.cache",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"

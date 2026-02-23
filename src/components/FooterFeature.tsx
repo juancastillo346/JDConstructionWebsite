@@ -46,19 +46,17 @@ export default function FooterFeature({ tiles }: FooterFeatureProps) {
     <section
       id="contact"
       ref={sectionRef}
-      className={`w-full bg-blue-50 py-16 transition-all duration-1000 md:py-24 ${
+      className={`w-full bg-emerald-900 py-12 sm:py-16 transition-all duration-1000 md:py-24 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
     >
       <div className="mx-auto max-w-7xl px-4">
         <div className="w-full flex items-center justify-center">
-          <div className="whitespace-nowrap text-center">
-            <span className="text-2xl md:text-4xl font-bold">
+          <div className="text-center">
+            <span className="text-xl sm:text-2xl md:text-4xl font-bold flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
               <span className="text-red-600 underline">Free Estimates!</span>
-              <span className="mx-4">Call</span>
-              <a href="tel:8329331631" className="font-bold no-underline" aria-label="Call 832-933-1631">
-                832-933-1631
-              </a>
+              <span>Call</span>
+              <span className="font-bold">832-933-1631</span>
             </span>
           </div>
         </div>

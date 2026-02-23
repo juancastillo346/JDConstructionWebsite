@@ -19,12 +19,15 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
+
 
 body {
   background: #ffffff;
   color: var(--foreground);
   font-family: var(--font-circular), var(--font-sans);
+  overflow-x: hidden;
 }
 
 /* local font: Circular Std */
@@ -44,4 +47,21 @@ body {
 
 .article-content a:hover {
   opacity: 0.8;
+}
+
+/* Logo safe area for notched phones */
+.safe-area-logo {
+  top: calc(0.75rem + env(safe-area-inset-top, 0px));
+  left: calc(1rem + env(safe-area-inset-left, 0px));
+}
+@media (min-width: 640px) {
+  .safe-area-logo {
+    top: calc(1rem + env(safe-area-inset-top, 0px));
+    left: calc(2rem + env(safe-area-inset-left, 0px));
+  }
+}
+@media (min-width: 768px) {
+  .safe-area-logo {
+    left: calc(3.5rem + env(safe-area-inset-left, 0px));
+  }
 }
